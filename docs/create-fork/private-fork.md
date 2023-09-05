@@ -8,7 +8,7 @@
 ### Подготовка проекта
 
 1. Создать у себя в профиле пустой приватный репозиторий - [https://github.com/new](https://github.com/new)
-   1. Назвать `bachelor-homeworks`
+   1. Название может быть любым (в примерах это `bachelor-homeworks`)
    2. Сделать его приватным
    3. Добавлять никаких файлов не надо
    ![Create repository](images/create_repository.png "create repository")
