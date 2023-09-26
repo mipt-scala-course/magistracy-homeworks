@@ -3,7 +3,7 @@ package mipt.homework4
 import cats.Monad
 import cats.data.WriterT
 import cats.implicits.catsSyntaxApplicativeId
-import mipt.utils.Homeworks.TaskSyntax
+import mipt.utils.Homeworks.*
 
 case class Debug(debug: String)
 case class Info(info: String)

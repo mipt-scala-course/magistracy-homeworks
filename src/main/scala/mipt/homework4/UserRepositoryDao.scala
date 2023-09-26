@@ -3,6 +3,7 @@ package mipt.homework4
 import cats.MonadThrow
 import cats.mtl.Ask
 import mipt.homework4.UserErrors.*
+import mipt.utils.Homeworks.*
 
 case class Config(chunkSize: Int)
 
