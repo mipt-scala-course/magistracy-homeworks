@@ -5,7 +5,6 @@
 * [Polynom](src/main/scala/mipt/homework5/Polynom.scala) - реализовать структуру данных Polynom в файле Polynom.scala и его методы
 * [VectorSpace](src/main/scala/mipt/homework5/VectorSpace.scala) - реализовать тайпкласс VectorSpace в файле VectorSpace.scala и методы, инстансы и синтаксис в объекте компаньоне
 
-# Подготовка к выполнению домашнего задания
 
 Для работы над домашними заданиями нужно:
 * установить IntelliJ IDEA и подготовить ее для работы со Scala. Это описано в [инструкции по установке IDEA](docs/idea-install/install.md).
