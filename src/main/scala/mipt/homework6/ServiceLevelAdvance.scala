@@ -16,7 +16,8 @@ class Platinum        extends Business
 
 /**
   * Модифицируйте код таким образом, чтобы ServiceLevelAdvance был привязан к уровню обслуживания,
-  * а ServiceLevelAdvance.advance мог только повышать уровень обслуживания
+  * а ServiceLevelAdvance.advance мог только повышать уровень обслуживания.
+  * Подсказку, как именно модифицировать, вы найдете в тестах.
   */
 class ServiceLevelAdvance {
   def advance: ServiceLevelAdvance = new ServiceLevelAdvance
