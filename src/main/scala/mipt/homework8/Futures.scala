@@ -11,10 +11,7 @@ object Futures {
    */
   def foldF[A, B](in: Seq[Future[A]], zero: B, op: (B, A) => B)(
     implicit executionContext: ExecutionContext
-  ): Future[B] =
-    // /*
-    Future.foldLeft(in)(zero)(op)
-    // */
+  ): Future[B] = ???
 
   /**
    * Реализуйте функцию, которая выполнит свертку (fold) входящей последовательности из Future,
