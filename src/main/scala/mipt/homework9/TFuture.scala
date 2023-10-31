@@ -7,7 +7,7 @@ trait TPromise[T] {
 
   def future: TFuture[T]
 
-  def completeWith(f: TFuture[T]): Unit
+  def complete(t: Try[T]): Unit
 
   def fail(th: Throwable): Unit
 
@@ -38,7 +38,7 @@ object TPromise {
           case Success(value) =>
             ec.execute { () =>
               Try(f(value)) match {
-                case Success(res) => promise.completeWith(res)
+                case Success(res) => res.onComplete(promise.complete)
                 case Failure(ex)  => promise.fail(ex)
               }
             }
@@ -56,19 +56,13 @@ object TPromise {
 
     }
 
-    override def completeWith(f: TFuture[T]): Unit =
-      f.onComplete { res =>
-        mapOrElseResult(nonEmptyResultGuard) {
-          _result = Some(res)
-          _callbacks.foreach(_(res))
-        }
+    override def complete(t: Try[T]): Unit =
+      mapOrElseResult(nonEmptyResultGuard) {
+        _result = Some(t)
+        _callbacks.foreach(_(t))
       }
 
-    override def fail(th: Throwable): Unit =
-      mapOrElseResult(nonEmptyResultGuard) {
-        _result = Some(Failure(th))
-        _callbacks.foreach(_(Failure(th)))
-      }
+    override def fail(th: Throwable): Unit = complete(Failure(th))
 
   }
 
@@ -94,7 +88,7 @@ object TFuture {
       ec.execute { () =>
         Try(f(value)) match {
           case Success(succeeded) =>
-            promise.completeWith(succeeded)
+            succeeded.onComplete(promise.complete)
           case Failure(exception) =>
             promise.fail(exception)
         }
