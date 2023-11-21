@@ -5,4 +5,4 @@
 Для работы над домашними заданиями нужно:
 * склонировать к себе проект из этой ветки
 * запустить sbt
-* проверить работу задач count sourceFiles и countSourceLines
+* проверить работу задач count countSourceFiles и countSourceLines
